@@ -1,8 +1,8 @@
-# Aplikasi Mobile Banking bankCAS
+# Aplikasi Mobile Banking BankCAS
 
 ## Definisi
 
-bankCAS adalah aplikasi mobile banking yang memungkinkan pengguna untuk mengelola rekening bank, melakukan transaksi, dan melihat detail rekening. Aplikasi ini dibangun menggunakan prinsip pemrograman berorientasi objek (OOP) dalam C++. README ini memberikan penjelasan rinci tentang kelas dan fungsi inti dalam file `bankCAS.cpp`, menggambarkan konsep OOP (Pemrograman Berorientasi Objek).
+BankCAS adalah aplikasi mobile banking yang memungkinkan pengguna untuk mengelola rekening bank, melakukan transaksi, dan melihat detail rekening. Aplikasi ini dibangun menggunakan prinsip pemrograman berorientasi objek (OOP) dalam C++. README ini memberikan penjelasan rinci tentang kelas dan fungsi inti dalam file `bankCAS.cpp`, menggambarkan konsep OOP (Pemrograman Berorientasi Objek).
 
 ## Definisi Kelas
 
@@ -427,4 +427,42 @@ void transferFunds(User* user) {
 }
 ```
 Fungsi `transferFunds` menangani transfer dana antara akun, memvalidasi akun asal dan melakukan transaksi.
+
+## Pembagian Konsep OOP pada Kode
+
+1. **Class & Object:**
+   - Kelas adalah blueprint untuk menciptakan objek. Dalam kode ini, kita memiliki beberapa kelas seperti `Transaction`, `Account`, `SavingsAccount`, `InvestmentAccount`, `User`, dan `PremiumUser`.
+   - Objek adalah instance dari sebuah kelas. Contohnya adalah ketika kita membuat objek seperti `Transaction`, `Account`, `SavingsAccount`, dan lain-lain di dalam fungsi `main()`.
+
+2. **Attribute / Property & Method / Behavior:**
+   - Atribut adalah data yang dimiliki oleh suatu objek. Contohnya adalah `transactionId`, `date`, `amount` di kelas `Transaction`.
+   - Metode adalah perilaku yang dimiliki oleh suatu objek. Contohnya adalah `viewDetails()` di kelas `Transaction`.
+
+3. **Constructor:**
+   - Constructor adalah metode khusus yang dieksekusi saat objek dibuat. Dalam kode ini, kita memiliki constructor untuk setiap kelas seperti `Transaction`, `Account`, `SavingsAccount`, dan `InvestmentAccount`. Mereka digunakan untuk menginisialisasi nilai awal atribut.
+
+4. **Setter & Getter:**
+   - Setter adalah metode yang digunakan untuk mengatur nilai atribut dalam sebuah objek. Dalam kode ini, kita tidak memiliki metode setter eksplisit, tetapi kita mengatur nilai atribut melalui konstruktor.
+   - Getter adalah metode yang digunakan untuk mengambil nilai atribut dari sebuah objek. Contohnya adalah `getAccountId()` dan `getBalance()` di kelas `Account`.
+
+5. **Encapsulation:**
+   - Encapsulation adalah konsep menyembunyikan detail implementasi dari luar dunia. Dalam kode ini, kita menggunakan encapsulation dengan menjadikan atribut private atau protected, sehingga hanya metode dalam kelas yang dapat mengakses dan mengubah nilainya.
+
+6. **Inheritance:**
+   - Inheritance adalah konsep di mana sebuah kelas dapat mewarisi atribut dan metode dari kelas lain. Dalam kode ini, `SavingsAccount` dan `InvestmentAccount` mewarisi atribut dan metode dari kelas `Account`.
+
+7. **Overriding, Overloading:**
+   - Overriding terjadi saat sebuah metode dalam subclass memiliki implementasi yang berbeda dengan metode dalam superclass. Contohnya adalah `displayAccountType()` di kelas `SavingsAccount` dan `InvestmentAccount` yang mengoverride metode dengan nama yang sama di kelas `Account`.
+   - Overloading terjadi saat sebuah kelas memiliki beberapa metode dengan nama yang sama tetapi berbeda dalam jumlah atau tipe parameter. Contohnya tidak terdapat dalam kode ini.
+
+8. **Access Modifiers (Private, Protected, dan Public):**
+   - Private membatasi akses langsung ke anggota kelas hanya ke dalam kelas itu sendiri. Contohnya adalah atribut `transactionId` dalam kelas `Transaction`.
+   - Protected membatasi akses ke anggota kelas kepada kelas itu sendiri dan subclass. Contohnya adalah atribut `accountId` dalam kelas `Account`.
+   - Public memungkinkan akses ke anggota kelas dari mana saja. Contohnya adalah metode `registerUser()` dalam kelas `User`.
+
+9. **Abstraction:**
+   - Abstraction adalah konsep menyembunyikan detail implementasi dan hanya menampilkan fungsionalitas yang diperlukan. Dalam kode ini, kita menggunakan abstraksi dengan menyediakan antarmuka umum seperti `viewAccounts()`, `addAccountMenu()`, dan lain-lain, tanpa harus mengetahui detail implementasinya.
+
+10. **Polymorphism:**
+   - Polymorphism adalah konsep di mana suatu objek dapat memiliki banyak bentuk. Dalam kode ini, polimorfisme terjadi saat kita memanggil metode `viewAccounts()` atau `addAccountMenu()` dari objek `User`, yang dapat merujuk baik pada objek `User` biasa maupun `PremiumUser`, bergantung pada konteks pemanggilannya. Ini terjadi karena pewarisan dan overriding yang dilakukan di kelas turunan.
 
